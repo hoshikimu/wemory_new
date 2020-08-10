@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// 共通
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  font-family: sans-serif;
+}
+
+//共通フォーム
+.form-container {
+  width: 100%;
+  background-color: #EEE;
+}
+
+
+.form-box {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 50px 80px;
+  box-shadow: 0 0 8px #333;
+  background-color: white;
+}
+
+.form-title {
+  display: inline-block;
+  padding: 7px;
+  background-color: #EEE;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+}
