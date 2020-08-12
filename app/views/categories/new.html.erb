@@ -1,0 +1,27 @@
+<div class="container form-container">
+  <div class="col-xs-4 col-xs-offset-4 form-box">
+    <h4 class="form-title">カテゴリー一覧</h4>
+      <table class="table table-hover">
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td>
+              <%= link_to '編集', edit_category_path(category), class: "btn btn-default" %>
+            </td>
+            <td>
+              <%= link_to '削除', category_path(category), method: :delete, class: "btn btn-default" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <h4 class="form-title">新規作成</h4>
+      <%= form_for(@new_category, url: categories_path) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, class:"form-control fa", placeholder: "\uf02b カテゴリー名" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "保存", class:"btn btn-default" %>
+        </div>
+      <% end %>
+  </div>
+</div>
