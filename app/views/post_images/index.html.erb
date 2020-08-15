@@ -1,0 +1,16 @@
+<div class="categories-container">
+  <% @categories.each do |category| %>
+    <div class="category-bar btn btn-default">
+      <%= category.name %>
+    </div>
+  <% end %>
+</div>
+<div class="index-image-boxes-container main">
+  <% @post_images.each do |post_image| %>
+      <div class="index-image-box">
+        <%= attachment_image_tag post_image, :image %>
+      </div>
+  <% end %>
+</div>
+<div class="graydisplay"></div>
+
