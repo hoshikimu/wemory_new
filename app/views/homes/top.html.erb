@@ -1,0 +1,20 @@
+<div class="main-image-conteiner">
+  <%= attachment_image_tag @post_image, :image, fallback: "no_image.jpg", class:"main-image1" %>
+</div>
+<div>
+<div class="categories-container">
+  <% @categories.each do |category| %>
+    <div class=" category-bar btn btn-default">
+      <%= category.name %>
+    </div>
+  <% end %>
+</div>
+<div class="image-boxes-container">
+  <% @post_images.each do |post_image| %>
+    <%= link_to post_image_path(post_image) do %>
+      <div class="image-box">
+        <%= attachment_image_tag post_image, :image, size:"300x300" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

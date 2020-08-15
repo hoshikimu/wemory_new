@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   resources :post_images
   resources :categories
+
+  get '/top' => 'homes#top'
+  get '/about' => 'homes#about'
 end
