@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   get '/top' => 'homes#top'
   get '/about' => 'homes#about'
+
+  get '/search' => 'approvals#search'
+  get '/permission' => 'approvals#permission'
 end
