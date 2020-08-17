@@ -4,6 +4,6 @@ class ApprovalsController < ApplicationController
   end
 
   def permission
-    @user = User.find_by(name: params[:name], email params[:email])
+    @user = User.find_by(name: params[:name], email: params[:email])
   end
 end
