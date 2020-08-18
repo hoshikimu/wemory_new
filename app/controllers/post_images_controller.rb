@@ -18,8 +18,8 @@ def create
 end
 
 def index
-  @categories = Category.all
-  @post_images = PostImage.all
+  @categories = Category.where(user_id: current_user.id)
+  @post_images = PostImage.where(user_id: current_user.id)
 end
 
 def show
