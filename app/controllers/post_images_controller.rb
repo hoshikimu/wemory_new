@@ -2,7 +2,7 @@ class PostImagesController < ApplicationController
 
 def new
   @new_post_image = PostImage.new
-  @categories = Category.all
+  @categories = Category.where(user_id: current_user.id)
 end
 
 def create
