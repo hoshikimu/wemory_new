@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_032810) do
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id"
     t.integer "approvered_id"
-    t.integer "permission_status"
+    t.integer "permission_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
