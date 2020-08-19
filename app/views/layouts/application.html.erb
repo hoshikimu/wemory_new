@@ -24,9 +24,10 @@
             <%= link_to "投稿", new_post_image_path, class:"nav-item" %>
             <span class="p-nav-item">メニュー
               <%= link_to "カテゴリー", new_category_path, class:"child-nav-item1" %>
-              <%= link_to "マイページ", new_post_image_path, class:"child-nav-item2" %>
-              <%= link_to "カート", new_post_image_path, class:"child-nav-item3" %>
-              <%= link_to "注文履歴", top_path, class:"child-nav-item4" %>
+              <%= link_to "配送先設定", new_shipping_path, class:"child-nav-item2" %>
+              <%= link_to "招待", search_path, class:"child-nav-item3" %>
+              <%= link_to "カート", top_path, class:"child-nav-item4" %>
+              <%= link_to "注文履歴", top_path, class:"child-nav-item5" %>
             </span>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-item" %>
           </div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  postal_code: MyString
+  address: MyString
+  receiver: MyString
+  phone_number: MyString
+
+two:
+  user_id: 1
+  postal_code: MyString
+  address: MyString
+  receiver: MyString
+  phone_number: MyString

@@ -1,0 +1,22 @@
+<div class="container form-container">
+  <div class="col-xs-4 col-xs-offset-4 form-box">
+    <h4 class="form-title">配送先編集</h4>
+      <%= form_for(@shipping, url: shipping_path, method: :patch) do |f| %>
+        <div class="form-group">
+          <%= f.text_field :postal_code, class:"form-control fa", placeholder: "〒 郵便番号" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :address, class:"form-control fa", placeholder: "\uf3c5 住所" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :receiver, class:"form-control fa", placeholder: "\uf304 宛名" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :phone_number, class:"form-control fa", placeholder: "\uf3cd 電話番号" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "更新", class:"btn btn-default" %>
+        </div>
+      <% end %>
+  </div>
+</div>
