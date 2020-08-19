@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :categories
+  resources :shippings
 
   get '/top' => 'homes#top'
   get '/about' => 'homes#about'

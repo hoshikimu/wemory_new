@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :approvered, class_name: "approval", foreign_key: "approvered_id", dependent: :destroy
 
   has_many :favorites, dependent: :destroy
+  has_many :shippings, dependent: :destroy
 end
