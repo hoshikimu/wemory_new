@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :approver, class_name: "approval", foreign_key: "approver_id", dependent: :destroy
   # ② 承認されている人取得(Userのapproveredから見た関係)
   has_many :approvered, class_name: "approval", foreign_key: "approvered_id", dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
 end

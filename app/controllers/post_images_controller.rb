@@ -23,7 +23,8 @@ def index
 end
 
 def show
-  
+  @post_image = PostImage.find(params[:id])
+  @introduction = @post_image.introduction
 end
 
 private

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// 投稿一覧ページ
+// index
 
 // カテゴリーバーのcssはhomes.scssと共通
 
@@ -22,25 +22,32 @@
   height: 200px;
 }
 
-
-.graydisplay {
-  display: none;
+// show
+.whitedisplay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.45);
+  background: rgba(255,255,255,0.7);
 }
 
-.graydisplay img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 70%;
-  height: 70%;
+.close-btn {
+  font-size: 50px;
+  float: right;
+  margin-top: 40px;
+  margin-right: 80px;
+}
+
+.post-image-show {
+  width: 100%;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-image-show img {
   object-fit: contain;
+  width: 80%;
+  height: 70vh;
 }
