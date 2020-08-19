@@ -7,10 +7,16 @@
   <div class="post-image-show">
     <%= attachment_image_tag @post_image, :image %>
   </div>
-  <div>
-    <div class="favorites-btn">
+  <div class="image-detail">
+    <span class="favorites-btn">
       <%= render "post_images/favorite", post_image: @post_image %>
-    </div>
-    <p><%= @introduction %></p>
+    </span>
+    <span>
+      <i class="fas fa-shopping-cart"></i>
+    </span>
+    <span class="image-int">
+      <i class="far fa-comment"></i>
+      <%= @introduction %>
+    </span>
   </div>
 </div>
