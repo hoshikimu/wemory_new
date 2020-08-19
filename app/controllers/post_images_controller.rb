@@ -27,6 +27,27 @@ def show
   @introduction = @post_image.introduction
 end
 
+def edit
+  @post_image = PostImage.find(params[:id])
+  @categories = Category.where(user_id: current_user.id)
+end
+
+def update
+  post_image = PostImage.find(params[:id])
+  if post_image.update(post_image_params)
+    redirect_to post_images_path
+  else
+    @post_image = PostImage.find(params[:id])
+    render :edit
+  end
+end
+
+def destroy
+  post_image = PostImage.find(params[:id])
+  post_image.destroy
+  redirect_to post_images_path
+end
+
 private
 def post_image_params
   params.require(:post_image).permit(:user_id, :category_id, :introduction, :image)
