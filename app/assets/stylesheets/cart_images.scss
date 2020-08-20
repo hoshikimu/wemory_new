@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 90%;
-  margin: 0 auto 80px;
+  margin: 0 auto 30px;
 }
 
 .cart-images-container img {
@@ -15,4 +15,9 @@
   margin: 1px;
   width: 100px;
   height: 100px;
+}
+
+.cart-btn-container {
+  display: flex;
+  justify-content: center;
 }
