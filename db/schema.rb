@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_025039) do
+ActiveRecord::Schema.define(version: 2020_08_20_090610) do
 
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id"
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(version: 2020_08_20_025039) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_images", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "post_image_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "postal_code", null: false
+    t.string "receiver", null: false
+    t.string "address", null: false
+    t.string "phone_number", null: false
+    t.integer "postage", default: 500, null: false
+    t.integer "payment_method", default: 0, null: false
+    t.integer "total", null: false
+    t.integer "order_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
