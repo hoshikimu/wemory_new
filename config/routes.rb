@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get '/cart_images/index' => 'cart_images#index'
 
   get '/order/about' => 'orders#about'
+  get '/order/completion' => 'orders#completion'
 end

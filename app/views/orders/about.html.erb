@@ -1,0 +1,48 @@
+<div class="container form-container">
+  <div class="col-xs-8 col-xs-offset-2 form-box">
+    <h4 class="form-title">支払い方法</h4>
+    <div>
+      <%= @payment_method %>
+    </div>
+    <h4 class="form-title">お届け先</h4>
+      <div>
+        <span>〒</span><%= @postal_code %><br>
+        <%= @address %><br>
+        <%= @receiver %><br>
+        <%= @phone_number %>
+      </div>
+    <h4 class="form-title">選択中の写真</h4>
+      <div class="cart-images-container">
+        <% @cart_images.each do |cart_image| %>
+          <%= attachment_image_tag cart_image.post_image, :image %>
+        <% end %>
+      </div>
+    <h4 class="form-title">アルバム部数</h4>
+      <div>
+        <%= @quantity %><span>部</span>
+      </div>
+    <h4 class="form-title">送料</h4>
+      <div>
+        <%= @postage.to_s(:delimited) %><span>円</span>
+      </div>
+    <h4 class="form-title">ご請求合計</h4>
+      <div>
+        <%= @total.to_s(:delimited) %><span>円</span>
+      </div>
+    <%= form_with(model: @order_new, url: orders_path, method: :post, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :payment_method, value: @payment_method %>
+        <%= f.hidden_field :postal_code, value: @postal_code %>
+        <%= f.hidden_field :address, value: @address %>
+        <%= f.hidden_field :receiver, value: @receiver %>
+        <%= f.hidden_field :phone_number, value: @phone_number %>
+        <%= f.hidden_field :quantity, value: @quantity %>
+        <%= f.hidden_field :postage, value: @postage %>
+        <%= f.hidden_field :total, value: @total %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "購入を確定する", class:"btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>

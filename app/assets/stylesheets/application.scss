@@ -37,6 +37,10 @@ body {
   a:active { color: #333; text-decoration: none }
 }
 
+// 共通エラー
+.error-notice {
+  color: red;
+}
 
 //共通ヘッダー
 header {

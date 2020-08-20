@@ -4,7 +4,7 @@
       <table class="table table-hover">
         <% @shippings.each do |shipping| %>
           <tr>
-            <td><%= shipping.postal_code %></td>
+            <td><span>〒</span><%= shipping.postal_code %></td>
             <td><%= shipping.address %></td>
             <td><%= shipping.receiver %></td>
             <td><%= shipping.phone_number %></td>
