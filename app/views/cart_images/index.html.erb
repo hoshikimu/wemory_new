@@ -1,0 +1,10 @@
+<div class="container form-container">
+  <div class="col-xs-8 col-xs-offset-2 form-box">
+    <h4 class="form-title">選択中の写真</h4>
+      <div class="cart-images-container">
+        <% @cart_images.each do |cart_image| %>
+          <%= attachment_image_tag cart_image.post_image, :image %>
+        <% end %>
+      </div>
+  </div>
+</div>

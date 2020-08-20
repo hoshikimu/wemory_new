@@ -1,3 +1,18 @@
 // Place all the styles related to the CartImages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index
+.cart-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto 80px;
+}
+
+.cart-images-container img {
+  object-fit: cover;
+  margin: 1px;
+  width: 100px;
+  height: 100px;
+}

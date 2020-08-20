@@ -11,4 +11,8 @@ class CartImagesController < ApplicationController
     cart_image.destroy
   end
 
+  def index
+    @cart_images = CartImage.where(user_id: current_user.id)
+  end
+
 end

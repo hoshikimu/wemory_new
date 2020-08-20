@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get '/search' => 'approvals#search'
   get '/permission' => 'approvals#permission'
   post '/create' => 'approvals#create'
+
+  get '/cart_images/index' => 'cart_images#index'
 end
