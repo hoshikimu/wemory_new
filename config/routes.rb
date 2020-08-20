@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :post_images do
     resource :favorites, only: [:create, :destroy]
+    resource :cart_images, only: [:create, :destroy]
   end
   resources :categories
   resources :shippings
