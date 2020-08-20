@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :categories
   resources :shippings
+  resources :orders
 
   get '/top' => 'homes#top'
   get '/about' => 'homes#about'
@@ -18,4 +19,6 @@ Rails.application.routes.draw do
   post '/create' => 'approvals#create'
 
   get '/cart_images/index' => 'cart_images#index'
+
+  get '/order/about' => 'orders#about'
 end

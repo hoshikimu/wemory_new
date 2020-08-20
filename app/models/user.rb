@@ -14,4 +14,5 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :shippings, dependent: :destroy
   has_many :cart_images, dependent: :destroy
+  has_many :orders, dependent: :destroy
 end
