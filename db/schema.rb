@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(version: 2020_08_20_090610) do
     t.string "receiver", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
-    t.integer "postage", default: 500, null: false
+    t.integer "quantity", null: false
+    t.integer "postage", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "total", null: false
     t.integer "order_status", default: 0, null: false

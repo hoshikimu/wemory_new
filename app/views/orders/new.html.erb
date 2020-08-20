@@ -1,14 +1,15 @@
 <div class="container form-container">
-  <div class="col-xs-8 col-xs-offset-2 form-box">
+  <div class="col-xs-6 col-xs-offset-3 form-box">
+    <div class="error-notice"><%= flash[:danger] %></div>
     <h4 class="form-title">支払い方法</h4>
       <%= form_with(url: order_about_path, method: :get, local: true) do |f| %>
         <div class="form-group">
-          <%= f.select :payment_method, Order.payment_methods.keys, {prompt: "支払い方法選択"}, class:"form-control"%>
+          <%= f.select :payment_method, Order.payment_methods.keys, {}, class:"form-control"%>
         </div>
     <h4 class="form-title">お届け先</h4>
         <div class="form-group">
           <%= f.radio_button :selected, :a, checked: true %><span>登録済みの住所から選択</span>
-          <%= f.select :shipping_address, @user_shipping_addresses.map{ |user_shipping_address| [user_shipping_address.postal_code + user_shipping_address.address + user_shipping_address.receiver, user_shipping_address.id] }, {include_blank: "選択してください"}, class:"form-control" %>
+          <%= f.select :shipping_address, @user_shipping_addresses.map{ |user_shipping_address| [user_shipping_address.postal_code + user_shipping_address.address + user_shipping_address.receiver + user_shipping_address.phone_number, user_shipping_address.id] }, {include_blank: "選択してください"}, class:"form-control" %>
         </div>
         <div class="form-group">
           <%= f.radio_button :selected, :b %><span>新しいお届け先</span><br>
@@ -25,10 +26,13 @@
             <%= f.text_field :phone_number, class:"form-control fa", placeholder: "\uf3cd 電話番号" %>
           </div>
         </div>
+    <h4 class="form-title">アルバム部数選択</h4>
+        <div class="form-inline">
+          <%= f.number_field :quantity, class: "form-control", in: 1..10 %>
+        </div>
         <div class="form-group">
           <%= f.submit "確認画面へ進む", class:"btn btn-default" %>
         </div>
       <% end %>
   </div>
 </div>
-

@@ -3,11 +3,15 @@
     <h4 class="form-title">選択中の写真</h4>
       <div class="cart-images-container">
         <% @cart_images.each do |cart_image| %>
-          <%= attachment_image_tag cart_image.post_image, :image %>
+          <%= link_to post_image_path(cart_image.post_image) do %>
+            <%= attachment_image_tag cart_image.post_image, :image %>
+          <% end %>
         <% end %>
       </div>
-      <div class="cart-btn-container">
-        <%= link_to "注文情報入力画面に進む", new_order_path, class:"btn btn-default" %>
-      </div>
+      <% if @exist_cart_image %>
+        <div class="cart-btn-container">
+          <%= link_to "注文情報入力画面に進む", new_order_path, class:"btn btn-default" %>
+        </div>
+      <% end %>
   </div>
 </div

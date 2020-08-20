@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 90%;
-  margin: 0 auto 30px;
+  margin: 0 auto;
 }
 
 .cart-images-container img {
@@ -17,7 +17,13 @@
   height: 100px;
 }
 
+.cart-images-container img:hover{
+  opacity: 0.6;
+  transition-duration: 0.2s;
+}
+
 .cart-btn-container {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
