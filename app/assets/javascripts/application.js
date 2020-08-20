@@ -44,3 +44,18 @@ $(function(){
     hidePrevious : false
   });
 });
+
+//商品登録、編集画面に画像プレビューを表示
+$(function(){
+  $('#file').change(function(){
+    var file = $(this).prop('files')[0];
+    if(!file.type.match('image.*')){
+      return;
+    }
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      $('#result').html('<img src="' + fileReader.result + '" width="180" height="180">');
+    }
+    fileReader.readAsDataURL(file);
+  });
+});

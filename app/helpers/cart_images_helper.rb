@@ -1,0 +1,2 @@
+module CartImagesHelper
+end

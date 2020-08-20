@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_064114) do
+ActiveRecord::Schema.define(version: 2020_08_20_025039) do
 
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id"
     t.integer "approvered_id"
     t.integer "permission_status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cart_images", force: :cascade do |t|
+    t.integer "post_image_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

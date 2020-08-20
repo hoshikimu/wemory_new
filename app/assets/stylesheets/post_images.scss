@@ -4,7 +4,6 @@
 
 
 // index
-
 // カテゴリーバーのcssはhomes.scssと共通
 
 .index-image-boxes-container {
@@ -58,7 +57,7 @@
 }
 
 .image-detail {
-  width: 55%;
+  width: 53%;
   margin: 15px auto 0;
   font-size: 18px;
 }
@@ -68,7 +67,7 @@
   float: right;
 }
 
-.fa-shopping-cart {
+.cart-btn {
   margin-left: 15px;
 }
 
@@ -88,4 +87,11 @@
   width: 50%;
   height: 20vh;
   margin-bottom: 15px;
+}
+
+
+// new
+#result img {
+  object-fit: contain;
+  margin-top: 5px;
 }

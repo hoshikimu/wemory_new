@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :post_images do
     resource :favorites, only: [:create, :destroy]
+    resource :cart_images, only: [:create, :destroy]
   end
   resources :categories
   resources :shippings
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
   get '/search' => 'approvals#search'
   get '/permission' => 'approvals#permission'
   post '/create' => 'approvals#create'
+
+  get '/cart_images/index' => 'cart_images#index'
 end
