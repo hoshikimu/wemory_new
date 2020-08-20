@@ -14,13 +14,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
 
 // オプションを指定してSkipprの実行
-$(function(){
+$(document).ready(function(){
   $("#theTarget").skippr({
     // スライドショーの変化（"fade" or "slide"）
     transition : 'fade',
