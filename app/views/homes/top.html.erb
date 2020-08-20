@@ -1,7 +1,10 @@
-<div class="main-image-conteiner">
-  <%= attachment_image_tag @post_image, :image, fallback: "no_image.jpg", class:"main-image1" %>
+<div class="skp-container">
+  <div id="theTarget">
+    <% @main_post_images.each do |main_post_image| %>
+      <%= attachment_image_tag main_post_image, :image %>
+    <% end %>
+  </div>
 </div>
-<div>
 <div class="categories-container">
   <% @categories.each do |category| %>
     <div class=" category-bar btn btn-default">
@@ -13,7 +16,7 @@
   <% @post_images.each do |post_image| %>
     <%= link_to post_image_path(post_image) do %>
       <div class="image-box">
-        <%= attachment_image_tag post_image, :image, size:"300x300" %>
+        <%= attachment_image_tag post_image, :image %>
       </div>
     <% end %>
   <% end %>
