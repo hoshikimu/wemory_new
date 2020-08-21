@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
         new_order_image.save
       end
       cart_images.destroy_all
-      redirect_to order_completion_path
+      redirect_to orders_completion_path
     else
       @user_shipping_addresses = Shipping.where(user_id: user.id)
       render :new

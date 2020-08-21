@@ -14,14 +14,15 @@ Rails.application.routes.draw do
   get '/top' => 'homes#top'
   get '/about' => 'homes#about'
 
-  get '/search' => 'approvals#search'
-  get '/permission' => 'approvals#permission'
-  post '/create' => 'approvals#create'
+  get 'approvals/search' => 'approvals#search'
+  get 'approvals/permission' => 'approvals#permission'
+  post 'approvals/create' => 'approvals#create'
+  get 'approvals/index' => 'approvals#index'
 
   get '/cart_images/index' => 'cart_images#index'
 
-  get '/order/about' => 'orders#about'
-  get '/order/completion' => 'orders#completion'
+  get '/orders/about' => 'orders#about'
+  get '/orders/completion' => 'orders#completion'
 
   get '/post_imaegs/categories/:category_id' => 'post_images#index_by_category', as: 'index_by_category'
 end
