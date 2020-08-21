@@ -2,7 +2,7 @@
   <div class="col-xs-8 col-xs-offset-2 form-box">
     <h4 class="form-title">購入日時</h4>
     <div>
-      <%= @order.created_at %>
+      <%= @order.created_at.to_s(:datetime_jp) %>
     </div>
     <h4 class="form-title">配送状況</h4>
     <div>
@@ -20,7 +20,7 @@
         <%= @order.phone_number %>
       </div>
     <h4 class="form-title">ご注文写真</h4>
-      <div class="cart-images-container">
+      <div class="order-images-container">
         <% @order_images.each do |order_image| %>
           <%= attachment_image_tag order_image, :image %>
         <% end %>
