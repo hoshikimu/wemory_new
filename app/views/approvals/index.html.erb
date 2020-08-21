@@ -1,0 +1,24 @@
+<div class="container form-container">
+  <div class="col-xs-4 col-xs-offset-4 form-box">
+    <% if @user_selected == "approver" %>
+      <h4 class="form-title">承認したユーザー一覧</h4>
+      <table class="table table-hover">
+        <% @approvers.each do |approver| %>
+          <tr>
+            <td><%= User.find(approver.approvered_id).name %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+    <% if @user_selected == "approvered" %>
+      <h4 class="form-title">承認されたユーザー一覧</h4>
+      <table class="table table-hover">
+        <% @approvereds.each do |approvered| %>
+          <tr>
+            <td><%= User.find(approvered.approver_id).name %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
+</div>
