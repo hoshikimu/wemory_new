@@ -22,7 +22,7 @@
     <h4 class="form-title">ご注文写真</h4>
       <div class="cart-images-container">
         <% @order_images.each do |order_image| %>
-          <%= attachment_image_tag order_image.post_image, :image %>
+          <%= attachment_image_tag order_image, :image %>
         <% end %>
       </div>
     <h4 class="form-title">アルバム部数</h4>

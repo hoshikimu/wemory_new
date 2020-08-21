@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_090610) do
   create_table "order_images", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "post_image_id", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

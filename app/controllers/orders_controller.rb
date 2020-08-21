@@ -51,6 +51,7 @@ class OrdersController < ApplicationController
         new_order_image = OrderImage.new
         new_order_image.order_id = new_order.id
         new_order_image.post_image_id = cart_image.post_image_id
+        new_order_image.image_id = PostImage.find(cart_image.post_image_id).image_id
         new_order_image.save
       end
       cart_images.destroy_all
