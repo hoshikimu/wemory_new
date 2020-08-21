@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   get '/order/about' => 'orders#about'
   get '/order/completion' => 'orders#completion'
+
+  get '/post_imaegs/categories/:category_id' => 'post_images#index_by_category', as: 'index_by_category'
 end

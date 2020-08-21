@@ -8,7 +8,9 @@
 <div class="categories-container">
   <% @categories.each do |category| %>
     <div class="category-bar">
-      <%= category.name %>
+      <%= link_to index_by_category_path(category) do %>
+        <%= category.name %>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -22,6 +22,11 @@ def index
   @post_images = PostImage.where(user_id: current_user.id)
 end
 
+def index_by_category
+  @categories = Category.where(user_id: current_user.id)
+  @post_images = PostImage.where(user_id: current_user.id, category_id: params[:category_id])
+end
+
 def show
   @post_image = PostImage.find(params[:id])
   @introduction = @post_image.introduction
