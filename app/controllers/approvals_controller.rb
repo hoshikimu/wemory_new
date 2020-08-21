@@ -12,12 +12,10 @@ class ApprovalsController < ApplicationController
     new_approval.permission_status = params[:permission_status]
     new_approval.approver_id = current_user.id
     new_approval.approvered_id = params[:user]
-    if new_approval.save
+    if new_approval.save!
       redirect_to top_path
     else
-      @user = User.find_by(name: params[:name], email: params[:email])
-      @new_approval = Approval.new
-      render :permission
+      render :search
     end
   end
 
