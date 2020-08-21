@@ -25,8 +25,16 @@ class ApprovalsController < ApplicationController
     @approvereds = Approval.where(approvered_id: current_user.id)
   end
 
-  # private
-  # def approval_params
-  #   params.require(:approval).permit(:permission_status)
-  # end
+  def post_image_index
+    @approver_user_id = params[:approver_id]
+    @categories = Category.where(user_id: @approver_user_id)
+    @post_images = PostImage.where(user_id: @approver_user_id)
+  end
+
+  def post_image_index_by_category
+    @approver_user_id = params[:approver_id]
+    @categories = Category.where(user_id: @approver_user_id)
+    @post_images = PostImage.where(user_id: @approver_user_id, category_id: params[:category_id])
+  end
+
 end

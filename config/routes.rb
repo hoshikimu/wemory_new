@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
   resources :categories
   resources :shippings
+  
+  get '/orders/about' => 'orders#about'
+  get '/orders/completion' => 'orders#completion'
   resources :orders
 
   get '/top' => 'homes#top'
@@ -18,11 +21,11 @@ Rails.application.routes.draw do
   get 'approvals/permission' => 'approvals#permission'
   post 'approvals/create' => 'approvals#create'
   get 'approvals/index' => 'approvals#index'
+  get 'approvals/:approver_id/post_images/' => 'approvals#post_image_index', as: 'approver_post_images'
+  get 'approvals/:approver_id/post_images/categories/:category_id' => 'approvals#post_image_index_by_category', as: 'approver_post_images_by_category'
 
   get '/cart_images/index' => 'cart_images#index'
 
-  get '/orders/about' => 'orders#about'
-  get '/orders/completion' => 'orders#completion'
 
-  get '/post_imaegs/categories/:category_id' => 'post_images#index_by_category', as: 'index_by_category'
+  get '/post_images/categories/:category_id' => 'post_images#index_by_category', as: 'index_by_category'
 end

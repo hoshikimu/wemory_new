@@ -22,7 +22,7 @@ class OrdersController < ApplicationController
         @phone_number = user.shippings.find(shipping_address_id).phone_number
       end
     when "b"
-      if params[:postal_code].blank? || params[:address].blank? || params[:receiver] || params[:phone_number].blank?
+      if params[:postal_code].blank? || params[:address].blank? || params[:receiver].blank? || params[:phone_number].blank?
         flash[:danger] = "お届け先が未入力です。"
         @user_shipping_addresses = Shipping.where(user_id: user.id)
         render :new
