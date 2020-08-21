@@ -1,21 +1,24 @@
 <div class="container form-container">
-  <div class="col-xs-6 col-xs-offset-3 form-box">
-    <h4 class="form-title">支払い方法</h4>
+  <div class="col-xs-8 col-xs-offset-2 form-box">
+    <h4 class="form-title">注文履歴</h4>
       <table class="table table-hover">
-        <% @shippings.each do |shipping| %>
           <tr>
-            <td><span>〒</span><%= shipping.postal_code %></td>
-            <td><%= shipping.address %></td>
-            <td><%= shipping.receiver %></td>
-            <td><%= shipping.phone_number %></td>
-            <td>
-              <%= link_to '編集', edit_shipping_path(shipping), class: "btn btn-default" %>
-            </td>
-            <td>
-              <%= link_to '削除', shipping_path(shipping), method: :delete, class: "btn btn-default" %>
-            </td>
+            <th>購入日時</th>
+            <th>お届け先</th>
+            <th></th>
           </tr>
-        <% end %>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at %></td>
+              <td>
+                <span>〒</span><%= order.postal_code %>
+                <br><%= order.address %>
+                <br><%= order.receiver %>
+                <br><%= order.phone_number %>
+              </td>
+              <td><%= link_to "詳細", order_path(order), class: "btn btn-default" %></td>
+            </tr>
+          <% end %>
       </table>
   </div>
 </div>

@@ -65,6 +65,15 @@ class OrdersController < ApplicationController
     
   end
 
+  def index
+    @orders = Order.where(user_id: current_user)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_images = OrderImage.where(order_id: @order.id)
+  end
+
   private
   def order_params
     params.require(:order).permit(:payment_method, :postal_code, :address, :receiver, :phone_number, :quantity, :postage, :total)

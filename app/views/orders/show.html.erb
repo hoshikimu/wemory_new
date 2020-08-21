@@ -1,0 +1,41 @@
+<div class="container form-container">
+  <div class="col-xs-8 col-xs-offset-2 form-box">
+    <h4 class="form-title">購入日時</h4>
+    <div>
+      <%= @order.created_at %>
+    </div>
+    <h4 class="form-title">配送状況</h4>
+    <div>
+      <%= @order.order_status %>
+    </div>
+    <h4 class="form-title">支払い方法</h4>
+    <div>
+      <%= @order.payment_method %>
+    </div>
+    <h4 class="form-title">お届け先</h4>
+      <div>
+        <span>〒</span><%= @order.postal_code %><br>
+        <%= @order.address %><br>
+        <%= @order.receiver %><br>
+        <%= @order.phone_number %>
+      </div>
+    <h4 class="form-title">ご注文写真</h4>
+      <div class="cart-images-container">
+        <% @order_images.each do |order_image| %>
+          <%= attachment_image_tag order_image.post_image, :image %>
+        <% end %>
+      </div>
+    <h4 class="form-title">アルバム部数</h4>
+      <div>
+        <%= @order.quantity %><span>部</span>
+      </div>
+    <h4 class="form-title">送料</h4>
+      <div>
+        <%= @order.postage.to_s(:delimited) %><span>円</span>
+      </div>
+    <h4 class="form-title">ご請求合計</h4>
+      <div>
+        <%= @order.total.to_s(:delimited) %><span>円</span>
+      </div>
+  </div>
+</div>
