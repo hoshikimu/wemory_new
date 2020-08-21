@@ -1,5 +1,5 @@
 <div class="container form-container">
-  <div class="col-xs-4 col-xs-offset-4 form-box">
+  <div class="col-xs-6 col-xs-offset-3 form-box">
     <% if @user_selected == "approver" %>
       <h4 class="form-title">承認したユーザー一覧</h4>
       <table class="table table-hover">
@@ -22,10 +22,14 @@
           <tr>
             <th>ユーザー名</th>
             <th>付与された権限</th>
+            <th></th>
           </tr>
           <tr>
             <td><%= User.find(approvered.approver_id).name %></td>
             <td><%= approvered.permission_status %></td>
+            <td>
+              <%= link_to "投稿を見る",approver_post_images_path(approvered.approver_id), class:"btn btn-default form-control" %>
+            </td>
           </tr>
         <% end %>
       </table>
