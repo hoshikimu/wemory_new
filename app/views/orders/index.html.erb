@@ -1,0 +1,21 @@
+<div class="container form-container">
+  <div class="col-xs-6 col-xs-offset-3 form-box">
+    <h4 class="form-title">支払い方法</h4>
+      <table class="table table-hover">
+        <% @shippings.each do |shipping| %>
+          <tr>
+            <td><span>〒</span><%= shipping.postal_code %></td>
+            <td><%= shipping.address %></td>
+            <td><%= shipping.receiver %></td>
+            <td><%= shipping.phone_number %></td>
+            <td>
+              <%= link_to '編集', edit_shipping_path(shipping), class: "btn btn-default" %>
+            </td>
+            <td>
+              <%= link_to '削除', shipping_path(shipping), method: :delete, class: "btn btn-default" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+  </div>
+</div>
