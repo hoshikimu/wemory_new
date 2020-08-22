@@ -1,10 +1,14 @@
 class OrdersController < ApplicationController
   def new
+    # エラーメッセージの部分テンプレートを使用するため、@order_newを作成しています。
+    @new_order = Order.new
     user = current_user
     @user_shipping_addresses = Shipping.where(user_id: user.id)
   end
 
   def about
+    # エラーメッセージの部分テンプレートを使用するため、@order_newを作成しています。
+    @new_order = Order.new
     user = current_user
     @payment_method = params[:payment_method]
     button_selected = params[:selected]
@@ -43,13 +47,13 @@ class OrdersController < ApplicationController
 
   def create
     user = current_user
-    new_order = Order.new(order_params)
-    new_order.user_id = user.id
+    @new_order = Order.new(order_params)
+    @new_order.user_id = user.id
     cart_images = CartImage.where(user_id: user.id)
-    if new_order.save
+    if @new_order.save
       cart_images.each do |cart_image|
         new_order_image = OrderImage.new
-        new_order_image.order_id = new_order.id
+        new_order_image.order_id = @new_order.id
         new_order_image.post_image_id = cart_image.post_image_id
         new_order_image.image_id = PostImage.find(cart_image.post_image_id).image_id
         new_order_image.save
@@ -67,7 +71,8 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(user_id: current_user)
+    @orders = Order.where(user_id: current_user).order(created_at: "DESC")
+    @exist_order = @orders.exists?
   end
 
   def show

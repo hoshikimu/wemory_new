@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_08_20_090610) do
 
   create_table "approvals", force: :cascade do |t|
-    t.integer "approver_id"
-    t.integer "approvered_id"
+    t.integer "approver_id", null: false
+    t.integer "approvered_id", null: false
     t.integer "permission_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,15 +28,15 @@ ActiveRecord::Schema.define(version: 2020_08_20_090610) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_image_id"
+    t.integer "user_id", null: false
+    t.integer "post_image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_090610) do
 
   create_table "post_images", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "category_id", null: false
+    t.integer "category_id"
     t.string "image_id", null: false
     t.text "introduction"
     t.datetime "created_at", null: false
@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 2020_08_20_090610) do
   end
 
   create_table "shippings", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "postal_code"
-    t.string "address"
-    t.string "receiver"
-    t.string "phone_number"
+    t.integer "user_id", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "receiver", null: false
+    t.string "phone_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

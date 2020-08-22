@@ -9,10 +9,10 @@ def create
   @new_post_image = PostImage.new(post_image_params)
   @new_post_image.user_id = current_user.id
   if @new_post_image.save
+    flash[:success] = "写真を投稿しました！"
     redirect_to post_images_path
   else
-    @new_post_image = PostImage.new
-    @categories = Category.all
+    @categories = Category.where(user_id: current_user.id)
     render :new
   end
 end
@@ -30,6 +30,7 @@ end
 def show
   @post_image = PostImage.find(params[:id])
   @introduction = @post_image.introduction
+  @permission_status = Approval.find_by(approver_id: @post_image.user_id, approvered_id: current_user.id, permission_status: "閲覧者(アルバム注文可)")
 end
 
 def edit
@@ -40,6 +41,7 @@ end
 def update
   post_image = PostImage.find(params[:id])
   if post_image.update(post_image_params)
+    flash[:success] = "投稿を編集しました！"
     redirect_to post_images_path
   else
     @post_image = PostImage.find(params[:id])
@@ -49,8 +51,10 @@ end
 
 def destroy
   post_image = PostImage.find(params[:id])
-  post_image.destroy
-  redirect_to post_images_path
+  if post_image.destroy
+    flash[:success] = "写真を削除しました！"
+    redirect_to post_images_path
+  end
 end
 
 private

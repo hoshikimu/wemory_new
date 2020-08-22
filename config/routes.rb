@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'approvals/permission' => 'approvals#permission'
   post 'approvals/create' => 'approvals#create'
   get 'approvals/index' => 'approvals#index'
+  get 'approvals/:approvered_id/edit' => 'approvals#edit', as: 'approvered_edit'
+  patch 'approvals/:approvered_id' => 'approvals#update', as: 'approvered_update'
+  delete 'approvals/:approvered_id' => 'approvals#destroy', as: 'approvered_destroy'
   get 'approvals/:approver_id/post_images/' => 'approvals#post_image_index', as: 'approver_post_images'
   get 'approvals/:approver_id/post_images/categories/:category_id' => 'approvals#post_image_index_by_category', as: 'approver_post_images_by_category'
 

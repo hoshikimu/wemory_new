@@ -37,10 +37,24 @@ body {
   a:active { color: #333; text-decoration: none }
 }
 
-// 共通エラー
-.error-notice {
+// 共通サクセス・エラーメッセージ
+.success-flash {
+  width: 100%;
+  position: relative;
+  top: 70px;
+  padding: 5px;
+  text-align: center;
+  background-color: #CCFFCC;
+  color: green;
+}
+.error-flash {
   color: red;
 }
+
+.error_explanation {
+  color: red;
+}
+
 
 //共通ヘッダー
 header {

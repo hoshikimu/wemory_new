@@ -4,18 +4,27 @@ class ApprovalsController < ApplicationController
 
   def permission
     @user = User.find_by(name: params[:name], email: params[:email])
+    if @user == nil
+      flash[:danger] = "ユーザーが見つかりません。"
+      render :search
+    elsif Approval.find_by(approver_id: current_user.id, approvered_id: @user.id)
+      flash[:danger] = "#{@user.name}さんは、承認済みです。"
+      render :search
+    end
     @new_approval = Approval.new
   end
 
   def create
-    new_approval = Approval.new
-    new_approval.permission_status = params[:permission_status]
-    new_approval.approver_id = current_user.id
-    new_approval.approvered_id = params[:user_id]
-    if new_approval.save!
+    @new_approval = Approval.new
+    @new_approval.permission_status = params[:permission_status]
+    @new_approval.approver_id = current_user.id
+    @new_approval.approvered_id = params[:user_id]
+    @user = User.find(@new_approval.approvered_id)
+    if @new_approval.save
+      flash[:success] = "#{@user.name}さんを承認しました！"
       redirect_to top_path
     else
-      render :search
+      render :permission
     end
   end
 
@@ -23,6 +32,32 @@ class ApprovalsController < ApplicationController
     @user_selected = params[:selected]
     @approvers = Approval.where(approver_id: current_user.id)
     @approvereds = Approval.where(approvered_id: current_user.id)
+  end
+
+  def edit
+    @user = User.find(params[:approvered_id])
+    @approval = Approval.find_by(approver_id: current_user.id, approvered_id: @user.id)
+  end
+
+  def update
+    @user = User.find(params[:approvered_id])
+    @approval = Approval.find_by(approver_id: current_user.id, approvered_id: @user.id)
+    @approval.permission_status = params[:permission_status]
+    if @approval.save
+      flash[:success] = "#{@user.name}さんの権限を編集しました！"
+      redirect_to approvals_search_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:approvered_id])
+    @approval = Approval.find_by(approver_id: current_user.id, approvered_id: @user.id)
+    if @approval.destroy
+      flash[:success] = "#{@user.name}さんの権限を削除しました！"
+      redirect_to approvals_search_path
+    end
   end
 
   def post_image_index

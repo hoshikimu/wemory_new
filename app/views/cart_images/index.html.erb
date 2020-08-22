@@ -1,6 +1,7 @@
 <div class="container form-container">
   <div class="col-xs-8 col-xs-offset-2 form-box">
     <h4 class="form-title">選択中の写真</h4>
+    <% if @exist_cart_image %>
       <div class="cart-images-container">
         <% @cart_images.each do |cart_image| %>
           <%= link_to post_image_path(cart_image.post_image) do %>
@@ -8,10 +9,9 @@
           <% end %>
         <% end %>
       </div>
-      <% if @exist_cart_image %>
-        <div class="cart-btn-container">
-          <%= link_to "注文情報入力画面に進む", new_order_path, class:"btn btn-default" %>
-        </div>
-      <% end %>
+      <div class="cart-btn-container">
+        <%= link_to "注文情報入力画面に進む", new_order_path, class:"btn btn-default" %>
+      </div>
+    <% end %>
   </div>
 </div
