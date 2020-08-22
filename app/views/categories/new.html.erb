@@ -1,5 +1,6 @@
 <div class="container form-container">
-  <div class="col-xs-4 col-xs-offset-4 form-box">
+  <div class="col-xs-6 col-xs-offset-3 form-box">
+    <%= render "shares/error_messages", resource: @new_category %>
     <h4 class="form-title">カテゴリー一覧</h4>
       <table class="table table-hover">
         <% @categories.each do |category| %>

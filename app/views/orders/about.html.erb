@@ -6,13 +6,13 @@
     </div>
     <h4 class="form-title">お届け先</h4>
       <div>
-        <span>〒</span><%= @postal_code %><br>
+        <span>〒</span><%= @postal_code.to_s.insert(3, "-") %><br>
         <%= @address %><br>
-        <%= @receiver %><br>
+        <%= @receiver %><span>　様</span><br>
         <%= @phone_number %>
       </div>
     <h4 class="form-title">選択中の写真</h4>
-      <div class="cart-images-container">
+      <div class="order-images-container">
         <% @cart_images.each do |cart_image| %>
           <%= attachment_image_tag cart_image.post_image, :image %>
         <% end %>
@@ -32,7 +32,7 @@
     <%= form_with(model: @order_new, url: orders_path, method: :post, local: true) do |f| %>
       <div class="form-group">
         <%= f.hidden_field :payment_method, value: @payment_method %>
-        <%= f.hidden_field :postal_code, value: @postal_code %>
+        <%= f.hidden_field :postal_code, value: @postal_code.to_s.delete("-") %>
         <%= f.hidden_field :address, value: @address %>
         <%= f.hidden_field :receiver, value: @receiver %>
         <%= f.hidden_field :phone_number, value: @phone_number %>

@@ -11,13 +11,15 @@
 
 .categories-container {
   display: flex;
-  justify-content: space-between;
-  width: 60%;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70%;
   margin: 80px auto 40px;
 }
 
 .category-bar {
-  border: 1px solid #333;
+  margin: 0 20px 20px;
+  border: 2px solid #333;
   border-radius: 0;
   background: #fff;
   box-shadow: 4px 4px 0 #333;

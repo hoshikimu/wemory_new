@@ -1,5 +1,10 @@
 <div class="container form-container">
   <div class="col-xs-4 col-xs-offset-4 form-box">
+    <% if flash[:danger] %>
+      <div class="error-flash">
+        <%= flash[:danger] %>
+      </div>
+    <% end %>
     <h4 class="form-title">ユーザー検索</h4>
       <%= form_with(url: approvals_permission_path, method: :get, local: true) do |f| %>
         <div class="form-group">

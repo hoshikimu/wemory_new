@@ -1,5 +1,6 @@
 <div class="container form-container">
   <div class="col-xs-4 col-xs-offset-4 form-box">
+    <%= render "shares/error_messages", resource: @shipping %>
     <h4 class="form-title">配送先編集</h4>
       <%= form_for(@shipping, url: shipping_path, method: :patch) do |f| %>
         <div class="form-group">
