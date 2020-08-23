@@ -47,6 +47,16 @@ body {
   background-color: #CCFFCC;
   color: green;
 }
+
+.alert-flash {
+  width: 100%;
+  position: relative;
+  top: 70px;
+  padding: 5px;
+  text-align: center;
+  background-color: #FFBEDA;
+  color: red;
+}
 .error-flash {
   color: red;
 }

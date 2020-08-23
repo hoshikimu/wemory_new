@@ -21,11 +21,11 @@
     <div class="form-group">
       <%= form_with(url: approvals_index_path, method: :get, local: true) do |f| %>
         <%= f.hidden_field :selected, value: "approver" %>
-        <%= f.submit "\uf007 承認したユーザー一覧はこちら", class:"fa btn btn-default form-control" %>
+        <%= f.submit "\uf007 承認したユーザー一覧", class:"fa btn btn-default form-control" %>
       <% end %><br>
       <%= form_with(url: approvals_index_path, method: :get, local: true) do |f| %>
         <%= f.hidden_field :selected, value: "approvered" %>
-        <%= f.submit "\uf007 承認されたユーザー一覧はこちら", class:"fa btn btn-default form-control" %>
+        <%= f.submit "\uf007 承認されたユーザー一覧", class:"fa btn btn-default form-control" %>
       <% end %>
     </div>
   </div>
