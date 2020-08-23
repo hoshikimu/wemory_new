@@ -1,4 +1,13 @@
 class HomesController < ApplicationController
+  before_action :user_login?, only: :about
+
+  def user_login?
+    if user_signed_in?
+      redirect_to top_path
+      flash[:alert] = "ログイン中です。"
+    end
+  end
+
   def about
     
   end
