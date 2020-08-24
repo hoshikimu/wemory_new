@@ -36,7 +36,7 @@ $(document).ready(function(){
     // スライドショーの自動再生（falseで自動再生なし）
     autoPlay : true,
     // 自動再生時のスライド切替間隔（ミリ秒）
-    autoPlayDuration : 5000,
+    autoPlayDuration : 4000,
     // キーボードの矢印キーによるスライド送りの設定（trueで有効）
     keyboardOnAlways : true,
     // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
@@ -83,6 +83,23 @@ $(function() {
       scrollTop:0
     }, 800);
     event.preventDefault();
+  });
+});
+
+
+// ヘッダーのスクロール表示切り替え
+$(function(){
+  var pos = 0;
+  var header = $('header');
+  $(window).on('scroll', function(){
+    if($(this).scrollTop() < pos || $(this).scrollTop() < 100 ){
+      //上スクロール時ヘッダー表示
+      header.slideDown(300);
+    }else{
+      //下スクロール時ヘッダー非表示
+      header.slideUp(300);
+    }
+    pos = $(this).scrollTop();
   });
 });
 
