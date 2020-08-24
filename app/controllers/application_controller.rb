@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: :about
+  before_action :authenticate_user!, except: [:about, :contact, :contact_create]
 
   def after_sign_up_path_for(resource)
     top_path

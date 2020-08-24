@@ -14,7 +14,7 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 70%;
-  margin: 80px auto 40px;
+  margin: 100px auto 40px;
 }
 
 .category-bar {
@@ -36,7 +36,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 75%;
-  margin: 0 auto 80px;
+  margin: 0 auto 120px;
 }
 
 .image-box img {
@@ -107,4 +107,11 @@
   width: 100%;
   height: 500px;
   text-align: center;
+}
+
+.about-image1 {
+  background-image: image-url('wemory.png');
+  width: 720px;
+  height: 989px;
+  margin: 0 auto;
 }

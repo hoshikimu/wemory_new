@@ -1,0 +1,17 @@
+<div class="container form-container">
+  <div class="col-xs-6 col-xs-offset-3 form-box">
+    <%= render "shares/error_messages", resource: @contact %>
+    <h4 class="form-title">お問い合わせ</h4>
+      <%= form_for(@contact, url: contacts_create_path) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control fa", placeholder: "\uf0e0 メールアドレス" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :message, size: "10x10", class:"form-control fa", placeholder: "\uf27a お問い合わせ内容" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "送信", class:"btn btn-default" %>
+        </div>
+      <% end %>
+  </div>
+</div>

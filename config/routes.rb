@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   get '/cart_images/index' => 'cart_images#index'
 
-
   get '/post_images/categories/:category_id' => 'post_images#index_by_category', as: 'index_by_category'
+
+  get 'contacts/contact' => 'contacts#contact'
+  post 'contacts/create' => 'contacts#contact_create'
 end
