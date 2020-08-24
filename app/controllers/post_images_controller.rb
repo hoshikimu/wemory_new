@@ -3,7 +3,7 @@ class PostImagesController < ApplicationController
 
   def ensure_correct_user?
     post_image_user_id = PostImage.find(params[:id]).user_id
-    if post_image_user_id != current_user.id
+    if post_image_user_id != current_user.id && !Approval.exists?(approver_id: post_image_user_id, approvered_id: current_user.id)
       redirect_to top_path
       flash[:alert] = "閲覧権限がありません。"
     end
