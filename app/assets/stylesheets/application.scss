@@ -35,6 +35,13 @@ body {
   a:visited { color: #333; text-decoration: none }
   a:hover { color: #333; text-decoration: none }
   a:active { color: #333; text-decoration: none }
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 // 共通サクセス・エラーメッセージ
@@ -196,6 +203,13 @@ header {
     color: white;
     transition: background-color 700ms;
   }
+}
+
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  font-size: 30px;
 }
 
 // フッター

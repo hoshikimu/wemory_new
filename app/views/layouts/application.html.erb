@@ -45,17 +45,24 @@
         </nav>
       <% end %>
     </header>
-    <% if flash[:success] %>
-      <div class="success-flash">
-        <%= flash[:success] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert-flash">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-    <%= yield %>
+    <main>
+      <% if flash[:success] %>
+        <div class="success-flash">
+          <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert-flash">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= yield %>
+      <span id="back">
+        <a href="#">
+          <i class="fas fa-arrow-up"></i>
+        </a>
+      </span>
+    </main>
     <footer>
       <div class="fab fa-instagram-square sns-icon"></div>
       <div class="fab fa-twitter-square sns-icon"></div>
