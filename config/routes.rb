@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'approvals/:approver_id/post_images/categories/:category_id' => 'approvals#post_image_index_by_category', as: 'approver_post_images_by_category'
 
   get '/cart_images/index' => 'cart_images#index'
+  delete '/cart_images/destroy_all' => 'cart_images#destroy_all', as: 'cart_images_destroy_all'
 
   get '/post_images/categories/:category_id' => 'post_images#index_by_category', as: 'index_by_category'
 

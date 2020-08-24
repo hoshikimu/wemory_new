@@ -9,9 +9,12 @@
           <% end %>
         <% end %>
       </div>
+      <div class="cart-delete-link">
+        <i class="far fa-trash-alt"></i><%= link_to " カートを空にする", cart_images_destroy_all_path %>
+      </div>
       <div class="cart-btn-container">
         <%= link_to "注文情報入力画面に進む", new_order_path, class:"btn btn-default" %>
       </div>
     <% end %>
   </div>
-</div
+</div>

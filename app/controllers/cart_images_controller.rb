@@ -18,4 +18,12 @@ class CartImagesController < ApplicationController
     @exist_cart_image = @cart_images.where(user_id: current_user.id).exists?
   end
 
+  def destroy_all
+    cart_images = CartImage.where(user_id: current_user.id)
+    if cart_images.destroy_all
+      flash[:success] = "カートの中身を空にしました。"
+      redirect_to top_path
+    end
+  end
+
 end
