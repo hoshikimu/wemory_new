@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_090610) do
+ActiveRecord::Schema.define(version: 2020_08_23_105533) do
 
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id", null: false
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2020_08_20_090610) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email", null: false
+    t.text "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
