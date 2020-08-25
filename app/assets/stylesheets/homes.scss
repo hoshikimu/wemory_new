@@ -43,8 +43,8 @@
   object-fit: cover;
   width: 300px;
   height: 300px;
-  padding: 20px;
-  border-radius: 25px;
+  margin: 20px;
+  border-radius: 5px;
 }
 
 .image-box img:hover {
@@ -116,7 +116,7 @@
 .skp-container2 {
   width: 450px;
   height: 622px;
-  margin: 0 auto 120px;
+  margin: 0 auto 70px;
   box-shadow: 0 0 8px #333;
 }
 

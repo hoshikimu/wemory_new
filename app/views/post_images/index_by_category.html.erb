@@ -2,11 +2,11 @@
 </div>
 <div class="categories-container">
   <% @categories.each do |category| %>
-    <div class="category-bar">
-      <%= link_to index_by_category_path(category) do %>
+    <%= link_to index_by_category_path(category) do %>
+      <div class="category-bar">
         <%= category.name %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <div class="index-image-boxes-container">

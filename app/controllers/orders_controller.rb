@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
         @user_shipping_addresses = Shipping.where(user_id: user.id)
         render :new
       else
-        @postal_code = params[:postal_code]
+        @postal_code = params[:postal_code].to_s.delete("-")
         @address = params[:address]
         @receiver = params[:receiver]
         @phone_number = params[:phone_number]

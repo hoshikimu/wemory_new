@@ -44,6 +44,32 @@
           </div>
         </nav>
       <% end %>
+      <!-- レスポンシブメニュー -->
+      <div class="rsp-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu-whitedisplay">
+        <div class="white-display-close-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="rsp-menu-items">
+          <% if user_signed_in? %>
+            <%= link_to "投稿一覧", post_images_path, class:"rsp-menu-item" %>
+            <%= link_to "投稿", new_post_image_path, class:"rsp-menu-item" %>
+            <%= link_to "カテゴリー", new_category_path, class:"rsp-menu-item" %>
+            <%= link_to "配送先設定", new_shipping_path, class:"rsp-menu-item" %>
+            <%= link_to "承認", approvals_search_path, class:"rsp-menu-item" %>
+            <%= link_to "カート", cart_images_index_path, class:"rsp-menu-item" %>
+            <%= link_to "注文履歴", orders_path, class:"rsp-menu-item" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"rsp-menu-item" %>
+          <% else %>
+            <%= link_to "お問い合わせ", contacts_contact_path, class:"rsp-menu-item" %>
+            <%= link_to "会員登録", new_user_registration_path, class:"rsp-menu-item" %>
+            <%= link_to "ログイン", new_user_session_path, class:"rsp-menu-item" %>
+          <% end %>
+        </div>
+      </div>
+      <!-- レスポンシブメニュー -->
     </header>
     <main>
       <% if flash[:success] %>

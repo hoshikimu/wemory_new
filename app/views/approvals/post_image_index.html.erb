@@ -1,15 +1,17 @@
 <div class="blank-header">
 </div>
 <div class="categories-container">
-  <div class="category-bar">
-    <%= link_to "投稿一覧", approver_post_images_path %>
-  </div>
-  <% @categories.each do |category| %>
+  <%= link_to approver_post_images_path do %>
     <div class="category-bar">
-      <%= link_to approver_post_images_by_category_path(@approver_user_id, category) do %>
-        <%= category.name %>
-      <% end %>
+      <span>投稿一覧</span>
     </div>
+  <% end %>
+  <% @categories.each do |category| %>
+    <%= link_to approver_post_images_by_category_path(@approver_user_id, category) do %>
+      <div class="category-bar">
+        <%= category.name %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 <div class="index-image-boxes-container">

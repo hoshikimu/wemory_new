@@ -35,7 +35,7 @@
         <%= f.hidden_field :postal_code, value: @postal_code.to_s.delete("-") %>
         <%= f.hidden_field :address, value: @address %>
         <%= f.hidden_field :receiver, value: @receiver %>
-        <%= f.hidden_field :phone_number, value: @phone_number %>
+        <%= f.hidden_field :phone_number, value: @phone_number.to_s.delete("-") %>
         <%= f.hidden_field :quantity, value: @quantity %>
         <%= f.hidden_field :postage, value: @postage %>
         <%= f.hidden_field :total, value: @total %>

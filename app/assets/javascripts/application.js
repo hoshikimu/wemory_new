@@ -81,7 +81,7 @@ $(function() {
   $('#back a').on('click',function(event){
     $('body, html').animate({
       scrollTop:0
-    }, 800);
+    }, 500);
     event.preventDefault();
   });
 });
@@ -115,5 +115,15 @@ $(function(){
       $('#result').html('<img src="' + fileReader.result + '" width="180" height="180">');
     }
     fileReader.readAsDataURL(file);
+  });
+});
+
+//レスポンシブメニューの表示切り替え
+$(function(){
+  $(".rsp-menu i").click(function() {
+    $(".menu-whitedisplay").fadeIn(200);
+  });
+  $(".white-display-close-btn").click(function() {
+    $(".menu-whitedisplay").fadeOut(200);
   });
 });
