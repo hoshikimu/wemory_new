@@ -1,25 +1,31 @@
-<div class="skp-container">
-  <div class="theTarget">
-    <% @main_post_images.each do |main_post_image| %>
-      <%= attachment_image_tag main_post_image, :image %>
-    <% end %>
-  </div>
-</div>
-<div class="categories-container">
-  <% @categories.each do |category| %>
-    <div class="category-bar">
-      <%= link_to index_by_category_path(category) do %>
-        <%= category.name %>
+<% if PostImage.exists?(user_id: current_user.id) %>
+  <div class="skp-container">
+    <div class="theTarget">
+      <% @main_post_images.each do |main_post_image| %>
+        <%= attachment_image_tag main_post_image, :image %>
       <% end %>
     </div>
-  <% end %>
-</div>
-<div class="image-boxes-container">
-  <% @post_images.each do |post_image| %>
-    <%= link_to post_image_path(post_image) do %>
-      <div class="image-box">
-        <%= attachment_image_tag post_image, :image %>
+  </div>
+  <div class="categories-container">
+    <% @categories.each do |category| %>
+      <div class="category-bar">
+        <%= link_to index_by_category_path(category) do %>
+          <%= category.name %>
+        <% end %>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+  <div class="image-boxes-container">
+    <% @post_images.each do |post_image| %>
+      <%= link_to post_image_path(post_image) do %>
+        <div class="image-box">
+          <%= attachment_image_tag post_image, :image %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="no-post-image-container">
+    <p><i class="fas fa-camera-retro"></i> 写真を投稿してみましょう！</p>
+  </div>
+<% end %>

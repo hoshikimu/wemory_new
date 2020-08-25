@@ -52,6 +52,15 @@
   transition-duration: 0.2s;
 }
 
+.no-post-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+  margin-top: 70px;
+  font-size: 18px;
+}
+
 
 // アバウトページ
 // skp-containerはトップページと共通

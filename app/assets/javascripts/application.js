@@ -92,7 +92,7 @@ $(function(){
   var pos = 0;
   var header = $('header');
   $(window).on('scroll', function(){
-    if($(this).scrollTop() < pos || $(this).scrollTop() < 100 ){
+    if($(this).scrollTop() < pos || $(this).scrollTop() < 70 ){
       //上スクロール時ヘッダー表示
       header.slideDown(300);
     }else{
