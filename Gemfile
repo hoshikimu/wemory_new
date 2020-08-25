@@ -78,6 +78,8 @@ gem "refile-mini_magick"
 
 gem 'pry-byebug'
 
+
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

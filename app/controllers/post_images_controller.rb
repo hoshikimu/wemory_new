@@ -28,7 +28,7 @@ class PostImagesController < ApplicationController
 
   def index
     @categories = Category.where(user_id: current_user.id)
-    @post_images = PostImage.where(user_id: current_user.id)
+    @post_images = PostImage.where(user_id: current_user.id).page(params[:page]).per(30)
   end
 
   def index_by_category
