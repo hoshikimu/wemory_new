@@ -242,7 +242,15 @@ header {
 }
 
 .rsp-menu-item {
-  margin: 10px;
+  padding: 15px;
+  width: 50%;
+  text-align: center;
+}
+
+.rsp-menu-item:hover {
+  background-color: rgba(0,0,0,0.9);
+  color: white;
+  transition: background-color 900ms;
 }
 
 // トップに戻るボタン

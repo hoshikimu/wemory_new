@@ -1,5 +1,5 @@
-<div class="container form-container">
-  <div class="col-xs-6 col-xs-offset-3 form-box">
+<div class="form-container">
+  <div class="form-box">
     <%= render "shares/error_messages", resource: @contact %>
     <h4 class="form-title">お問い合わせ</h4>
       <%= form_for(@contact, url: contacts_create_path) do |f| %>
