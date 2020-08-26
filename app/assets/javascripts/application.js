@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree ../../../vendor/assets/javascripts/.
+//= require jquery.jpostal
 //= require_tree .
 
 
@@ -126,4 +127,17 @@ $(function(){
   $(".white-display-close-btn").click(function() {
     $(".menu-whitedisplay").fadeOut(200);
   });
+});
+
+
+// 郵便番号入力で住所自動出力
+$(function(){
+  $("#address_zipcode").jpostal({
+      postcode : [ "#address_zipcode" ],
+      address  : {
+                    "#address_prefecture_name" : "%3",
+                    "#address_city"            : "%4%5",
+                    "#address_street"          : "%6%7"
+                  }
+    })
 });

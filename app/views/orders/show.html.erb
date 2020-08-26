@@ -15,7 +15,7 @@
     <h4 class="form-title">お届け先</h4>
       <div>
         <span>〒</span><%= @order.postal_code.to_s.insert(3, "-") %><br>
-        <%= @order.address %><br>
+        <%= @order.prefecture_code %><%= @order.address_city %><%= @order.address_street %><%= @order.address_building %><br>
         <%= @order.receiver %><span>　様</span><br>
         <%= @order.phone_number %>
       </div>

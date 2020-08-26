@@ -59,8 +59,11 @@ ActiveRecord::Schema.define(version: 2020_08_23_105533) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
     t.string "receiver", null: false
-    t.string "address", null: false
     t.string "phone_number", null: false
     t.integer "quantity", null: false
     t.integer "postage", null: false
@@ -83,7 +86,10 @@ ActiveRecord::Schema.define(version: 2020_08_23_105533) do
   create_table "shippings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "postal_code", null: false
-    t.string "address", null: false
+    t.string "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
     t.string "receiver", null: false
     t.string "phone_number", null: false
     t.datetime "created_at", null: false

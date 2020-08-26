@@ -3,23 +3,23 @@
     <h4 class="form-title">注文履歴</h4>
     <% if @exist_order %>
       <table class="table table-hover">
+        <tr>
+          <th>購入日時</th>
+          <th>お届け先</th>
+          <th></th>
+        </tr>
+        <% @orders.each do |order| %>
           <tr>
-            <th>購入日時</th>
-            <th>お届け先</th>
-            <th></th>
+            <td><%= order.created_at.to_s(:datetime_jp) %></td>
+            <td>
+              <span>〒</span><%= order.postal_code.to_s.insert(3, "-") %><br>
+              <%= order.prefecture_code %><%= order.address_city %><%= order.address_street %><%= order.address_building %><br>
+              <%= order.receiver %><br>
+              <%= order.phone_number %>
+            </td>
+            <td><%= link_to "詳細", order_path(order), class: "btn btn-default" %></td>
           </tr>
-          <% @orders.each do |order| %>
-            <tr>
-              <td><%= order.created_at.to_s(:datetime_jp) %></td>
-              <td>
-                <span>〒</span><%= order.postal_code.to_s.insert(3, "-") %>
-                <br><%= order.address %>
-                <br><%= order.receiver %>
-                <br><%= order.phone_number %>
-              </td>
-              <td><%= link_to "詳細", order_path(order), class: "btn btn-default" %></td>
-            </tr>
-          <% end %>
+        <% end %>
       </table>
     <% end %>
   </div>

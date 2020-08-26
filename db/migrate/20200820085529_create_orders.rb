@@ -3,8 +3,11 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     create_table :orders do |t|
       t.integer :user_id, null: false
       t.string :postal_code, null: false
+      t.string :prefecture_code, null: false
+      t.string :address_city, null: false
+      t.string :address_street, null: false
+      t.string :address_building
       t.string :receiver, null: false
-      t.string :address, null: false
       t.string :phone_number, null: false
       t.integer :quantity, null: false
       t.integer :postage, null: false
