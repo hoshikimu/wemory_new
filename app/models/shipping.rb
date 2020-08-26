@@ -3,7 +3,7 @@ class Shipping < ApplicationRecord
   validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
-  validates :address_building, presence: true
+  validates :address_street, presence: true
   validates :receiver, presence: true
   validates :phone_number, presence: true, format: { with: /\A\d{10,11}\z/ }
 

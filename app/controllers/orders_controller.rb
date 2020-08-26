@@ -1,4 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :ensure_correct_user?, only: :show
+
+  def ensure_correct_user?
+    order_user_id = Order.find(params[:id]).user_id
+    if order_user_id != current_user.id
+      redirect_to top_path
+      flash[:alert] = "閲覧権限がありません。"
+    end
+  end
+
   def new
     # エラーメッセージの部分テンプレートを使用するため、@order_newを作成しています。
     @new_order = Order.new
@@ -56,7 +66,7 @@ class OrdersController < ApplicationController
     @new_order = Order.new(order_params)
     @new_order.user_id = user.id
     cart_images = CartImage.where(user_id: user.id)
-    if @new_order.save!
+    if @new_order.save
       cart_images.each do |cart_image|
         new_order_image = OrderImage.new
         new_order_image.order_id = @new_order.id

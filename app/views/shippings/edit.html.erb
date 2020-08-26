@@ -7,7 +7,16 @@
           <%= f.text_field :postal_code, class:"form-control fa", placeholder: "〒 郵便番号" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :address, class:"form-control fa", placeholder: "\uf3c5 住所" %>
+          <%= f.text_field :prefecture_code, class:"form-control fa", id: "address_prefecture_name", placeholder: "\uf3c5 都道府県" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :address_city, class:"form-control fa", id:"address_city", placeholder: "\uf3c5 市区町村" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :address_street, class:"form-control fa", id: "address_street", placeholder: "\uf3c5 番地" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :address_building, class:"form-control fa", id: "address_building", placeholder: "\uf1ad 建物名" %>
         </div>
         <div class="form-group">
           <%= f.text_field :receiver, class:"form-control fa", placeholder: "\uf304 宛名" %>

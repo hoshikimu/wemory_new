@@ -1,6 +1,14 @@
 class ApprovalsController < ApplicationController
+  before_action :ensure_correct_approvered?, only: :edit
   before_action :ensure_correct_user?, only: [:post_image_index, :post_image_index_by_category]
   
+  def ensure_correct_approvered?
+    if !Approval.find_by(approver_id: current_user.id, approvered_id: params[:approvered_id])
+      redirect_to top_path
+      flash[:alert] = "閲覧権限がありません。"
+    end
+  end
+
   def ensure_correct_user?
     if Approval.find_by(approver_id: params[:approver_id], approvered_id: current_user.id).blank?
       redirect_to top_path

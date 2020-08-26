@@ -1,5 +1,6 @@
 <div class="form-container">
   <div class="form-box-s">
+    <%= render "shares/error_messages", resource: @category %>
     <h4 class="form-title">カテゴリー編集</h4>
       <%= form_for(@category, url: category_path, method: :patch) do |f| %>
         <div class="form-group">

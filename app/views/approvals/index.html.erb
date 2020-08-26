@@ -3,13 +3,13 @@
     <% if @user_selected == "approver" %>
       <h4 class="form-title">承認したユーザー一覧</h4>
       <table class="table table-hover">
+        <tr>
+          <th>ユーザー名</th>
+          <th>付与した権限</th>
+          <th></th>
+          <th></th>
+        </tr>
         <% @approvers.each do |approver| %>
-          <tr>
-            <th>ユーザー名</th>
-            <th>付与した権限</th>
-            <th></th>
-            <th></th>
-          </tr>
           <tr>
             <td><%= User.find(approver.approvered_id).name %></td>
             <td><%= approver.permission_status %></td>
@@ -22,12 +22,12 @@
     <% if @user_selected == "approvered" %>
       <h4 class="form-title">承認されたユーザー一覧</h4>
       <table class="table table-hover">
+        <tr>
+          <th>ユーザー名</th>
+          <th>付与された権限</th>
+          <th></th>
+        </tr>
         <% @approvereds.each do |approvered| %>
-          <tr>
-            <th>ユーザー名</th>
-            <th>付与された権限</th>
-            <th></th>
-          </tr>
           <tr>
             <td><%= User.find(approvered.approver_id).name %></td>
             <td><%= approvered.permission_status %></td>

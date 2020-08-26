@@ -1,4 +1,14 @@
 class ShippingsController < ApplicationController
+  before_action :ensure_correct_user?, only: :edit
+
+  def ensure_correct_user?
+    shipping_user_id = Shipping.find(params[:id]).user_id
+    if shipping_user_id != current_user.id
+      redirect_to top_path
+      flash[:alert] = "閲覧権限がありません。"
+    end
+  end
+
   def new
     @shippings = Shipping.where(user_id: current_user.id)
     @new_shipping = Shipping.new
