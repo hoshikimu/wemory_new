@@ -80,6 +80,8 @@ gem 'pry-byebug'
 
 gem 'kaminari','~> 1.2.1'
 
+gem 'jp_prefecture'
+
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'

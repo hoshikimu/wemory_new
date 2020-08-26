@@ -21,18 +21,24 @@ class OrdersController < ApplicationController
       else
         shipping_address_id = params[:shipping_address]
         @postal_code = user.shippings.find(shipping_address_id).postal_code
-        @address = user.shippings.find(shipping_address_id).address
+        @prefecture_code = user.shippings.find(shipping_address_id).prefecture_code
+        @address_city = user.shippings.find(shipping_address_id).address_city
+        @address_street = user.shippings.find(shipping_address_id).address_street
+        @address_building = user.shippings.find(shipping_address_id).address_building
         @receiver = user.shippings.find(shipping_address_id).receiver
         @phone_number = user.shippings.find(shipping_address_id).phone_number
       end
     when "b"
-      if params[:postal_code].blank? || params[:address].blank? || params[:receiver].blank? || params[:phone_number].blank?
+      if params[:postal_code].blank? || params[:prefecture_code].blank? || params[:address_city].blank? || params[:address_street].blank? || params[:receiver].blank? || params[:phone_number].blank?
         flash[:danger] = "お届け先が未入力です。"
         @user_shipping_addresses = Shipping.where(user_id: user.id)
         render :new
       else
         @postal_code = params[:postal_code].to_s.delete("-")
-        @address = params[:address]
+        @prefecture_code = params[:prefecture_code]
+        @address_city = params[:address_city]
+        @address_street = params[:address_street]
+        @address_building = params[:address_building]
         @receiver = params[:receiver]
         @phone_number = params[:phone_number]
       end
@@ -50,7 +56,7 @@ class OrdersController < ApplicationController
     @new_order = Order.new(order_params)
     @new_order.user_id = user.id
     cart_images = CartImage.where(user_id: user.id)
-    if @new_order.save
+    if @new_order.save!
       cart_images.each do |cart_image|
         new_order_image = OrderImage.new
         new_order_image.order_id = @new_order.id
@@ -82,6 +88,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :receiver, :phone_number, :quantity, :postage, :total)
+    params.require(:order).permit(:payment_method, :postal_code, :prefecture_code, :address_city, :address_street, :address_building, :receiver, :phone_number, :quantity, :postage, :total)
   end
 end
