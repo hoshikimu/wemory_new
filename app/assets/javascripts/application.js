@@ -87,7 +87,6 @@ $(function() {
   });
 });
 
-
 // ヘッダーのスクロール表示切り替え
 $(function(){
   var pos = 0;
@@ -129,7 +128,6 @@ $(function(){
   });
 });
 
-
 // 郵便番号入力で住所自動出力
 $(function(){
   $("#address_zipcode").jpostal({
@@ -140,4 +138,24 @@ $(function(){
                     "#address_street"          : "%6%7"
                   }
     })
+});
+
+//投稿コメントのモーダルウィンドウ
+$(function(){
+  $(".post-comment").click(function() {
+    $(".post-comment-whitedisplay").fadeIn(200);
+  });
+  $(".post-comment-close").click(function() {
+    $(".post-comment-whitedisplay").fadeOut(200);
+  });
+});
+
+//投稿コメントのモーダルウィンドウ
+$(function(){
+  $(".comment-icn").click(function() {
+    $(".post-comments-whitedisplay").fadeIn(200);
+  });
+  $(".post-comments-close").click(function() {
+    $(".post-comments-whitedisplay").fadeOut(200);
+  });
 });

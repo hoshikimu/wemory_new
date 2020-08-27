@@ -1,0 +1,39 @@
+// Place all the styles related to the PostComments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-comment-whitedisplay {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 22vh;
+  background: rgba(255,255,255,0.96);
+}
+
+.post-comment-form {
+  width: 54%;
+  margin: 10px auto 0;
+}
+
+.post-comments-whitedisplay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255,255,255,0.96);
+}
+
+.post-comments {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.post-comments-close {
+  display: inline-block;
+  float: right;
+  margin: 10px;
+}

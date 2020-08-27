@@ -40,6 +40,8 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.find(params[:id])
     @introduction = @post_image.introduction
     @permission_status = Approval.find_by(approver_id: @post_image.user_id, approvered_id: current_user.id, permission_status: "閲覧者(アルバム注文可)")
+    @new_post_comment = PostComment.new
+    @post_comments = PostComment.where(post_image_id: params[:id])
   end
 
   def edit
