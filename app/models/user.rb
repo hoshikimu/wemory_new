@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :post_images, dependent: :destroy
   has_many :categories, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
  
   # ① 承認している人取得(Userのapproverから見た関係)
   has_many :approver, class_name: "approval", foreign_key: "approver_id", dependent: :destroy

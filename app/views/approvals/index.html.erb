@@ -2,41 +2,45 @@
   <div class="form-box-s">
     <% if @user_selected == "approver" %>
       <h4 class="form-title">承認したユーザー一覧</h4>
-      <table class="table table-hover">
-        <tr>
-          <th>ユーザー名</th>
-          <th>付与した権限</th>
-          <th></th>
-          <th></th>
-        </tr>
-        <% @approvers.each do |approver| %>
+      <% if @approvers.exists? %>
+        <table class="table table-hover">
           <tr>
-            <td><%= User.find(approver.approvered_id).name %></td>
-            <td><%= approver.permission_status %></td>
-            <td><%= link_to "編集",approvered_edit_path(approver.approvered_id), class:"btn btn-default form-control" %></td>
-            <td><%= link_to "削除",approvered_destroy_path(approver.approvered_id), method: :delete, class:"btn btn-default form-control" %></td>
+            <th>ユーザー名</th>
+            <th>付与した権限</th>
+            <th></th>
+            <th></th>
           </tr>
-        <% end %>
-      </table>
+          <% @approvers.each do |approver| %>
+            <tr>
+              <td><%= User.find(approver.approvered_id).name %></td>
+              <td><%= approver.permission_status %></td>
+              <td><%= link_to "編集",approvered_edit_path(approver.approvered_id), class:"btn btn-default form-control" %></td>
+              <td><%= link_to "削除",approvered_destroy_path(approver.approvered_id), method: :delete, class:"btn btn-default form-control" %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
     <% end %>
     <% if @user_selected == "approvered" %>
       <h4 class="form-title">承認されたユーザー一覧</h4>
-      <table class="table table-hover">
-        <tr>
-          <th>ユーザー名</th>
-          <th>付与された権限</th>
-          <th></th>
-        </tr>
-        <% @approvereds.each do |approvered| %>
+      <% if @approvereds.exists? %>
+        <table class="table table-hover">
           <tr>
-            <td><%= User.find(approvered.approver_id).name %></td>
-            <td><%= approvered.permission_status %></td>
-            <td>
-              <%= link_to "投稿を見る",approver_post_images_path(approvered.approver_id), class:"btn btn-default form-control" %>
-            </td>
+            <th>ユーザー名</th>
+            <th>付与された権限</th>
+            <th></th>
           </tr>
-        <% end %>
-      </table>
+          <% @approvereds.each do |approvered| %>
+            <tr>
+              <td><%= User.find(approvered.approver_id).name %></td>
+              <td><%= approvered.permission_status %></td>
+              <td>
+                <%= link_to "投稿を見る",approver_post_images_path(approvered.approver_id), class:"btn btn-default form-control" %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
     <% end %>
   </div>
 </div>

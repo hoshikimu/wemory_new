@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_105533) do
+ActiveRecord::Schema.define(version: 2020_08_26_173549) do
 
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id", null: false
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 2020_08_23_105533) do
     t.integer "payment_method", default: 0, null: false
     t.integer "total", null: false
     t.integer "order_status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_image_id", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

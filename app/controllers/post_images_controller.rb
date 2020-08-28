@@ -1,5 +1,6 @@
 class PostImagesController < ApplicationController
   before_action :ensure_correct_user?, only: :show
+  before_action :ensure_correct_url?, only: :show
 
   def ensure_correct_user?
     post_image_user_id = PostImage.find(params[:id]).user_id
@@ -7,6 +8,16 @@ class PostImagesController < ApplicationController
       redirect_to top_path
       flash[:alert] = "閲覧権限がありません。"
     end
+  end
+
+  def ensure_correct_url?
+    PostImage.all.each do |post_image|
+      if post_image.id == params[:id].to_i
+        return
+      end
+    end
+    flash[:alert] = "エラー"
+    redirect_to top_path
   end
 
   def new
@@ -28,18 +39,21 @@ class PostImagesController < ApplicationController
 
   def index
     @categories = Category.where(user_id: current_user.id)
-    @post_images = PostImage.where(user_id: current_user.id).page(params[:page]).per(50)
+    @post_images = PostImage.where(user_id: current_user.id).page(params[:page]).per(30)
   end
 
   def index_by_category
     @categories = Category.where(user_id: current_user.id)
-    @post_images = PostImage.where(user_id: current_user.id, category_id: params[:category_id]).page(params[:page]).per(50)
+    @post_images = PostImage.where(user_id: current_user.id, category_id: params[:category_id]).page(params[:page]).per(30)
   end
 
   def show
     @post_image = PostImage.find(params[:id])
     @introduction = @post_image.introduction
     @permission_status = Approval.find_by(approver_id: @post_image.user_id, approvered_id: current_user.id, permission_status: "閲覧者(アルバム注文可)")
+    @new_post_comment = PostComment.new
+    @selected_post_comments = PostComment.where(post_image_id: params[:id]).order(created_at: "DESC").limit(5)
+    @post_comments = PostComment.where(post_image_id: params[:id]).order(created_at: "DESC")
   end
 
   def edit
