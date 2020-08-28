@@ -1,6 +1,7 @@
 class PostImage < ApplicationRecord
   attachment :image
   belongs_to :user
+  belongs_to :category
   has_many :favorites, dependent: :destroy
   has_many :cart_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
