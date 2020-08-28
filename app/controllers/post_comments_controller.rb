@@ -22,11 +22,6 @@ class PostCommentsController < ApplicationController
     end
   end
 
-  def index
-    @post_image = PostImage.find(params[:post_image_id])
-    @post_comments = PostComment.where(post_image_id: @post_image.id).order(created_at: "DESC").page(params[:page]).per(10)
-  end
-
   private
   def post_comment_params
     params.require(:post_comment).permit(:comment)

@@ -227,7 +227,7 @@ header {
 .white-display-close-btn {
   float: right;
   font-size: 36px;
-  margin-right: 50px;
+  margin-right: 20px;
   margin-top: 12px;
 }
 
@@ -256,8 +256,8 @@ header {
 // トップに戻るボタン
 #back {
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 30px;
+  bottom: 30px;
   font-size: 30px;
 }
 
@@ -358,13 +358,84 @@ footer {
   }
 }
 
-// @media (max-width:425px) {
-//   .form-box-s {
-//     width: 80%;
-//     margin: 120px auto 50px;
-//     padding: 50px 80px;
-//     box-shadow: 0 0 8px #333;
-//     background-color: white;
-//   }
-// }
+@media (max-width:425px) {
+  // 共通
+  .footer-nav-logo {
+    padding: 14px;
+  }
+
+  .sns-icon {
+    padding: 3px
+  }
+
+  .rsp-menu {
+    margin-right: 20px;
+  }
+
+  #back {
+  bottom: 80px;
+  right: 20px;
+  }
+
+  .form-box {
+  width: 80%;
+  padding: 30px 30px;
+  }
+
+  .form-box-s {
+  width: 80%;
+  padding: 30px 30px;
+  }
+
+  // アバウトページ
+  .about-text {
+    font-size: 14px;
+  }
+
+  .about-thema {
+    font-size: 16px;
+  }
+
+  .skp-container2 {
+  width: 300px;
+  height: 415px;
+  }
+
+  .skp-container3 {
+  width: 320px;
+  height: 200px;
+  }
+
+  // トップページ
+  .skp-container {
+    height: 250px;
+  }
+
+  .categories-container {
+    width: 90%;
+    margin: 60px auto 20px;
+  }
+
+  // 投稿一覧
+  .index-image-boxes-container {
+  width: 90%;
+  }
+
+  .index-image-box img {
+    width: 100px;
+    height: 100px;
+  }
+
+  // カート
+  .cart-images-container img {
+  width: 50px;
+  height: 50px;
+  }
+
+  // 注文情報確認画面
+  .order-images-container img {
+  width: 50px;
+  height: 50px;
+  }
+}
 

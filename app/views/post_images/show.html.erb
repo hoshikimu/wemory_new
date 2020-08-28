@@ -1,7 +1,13 @@
 <div class="whitedisplay">
   <div class="close-btn">
-    <%= link_to post_images_path do %>
-      <i class="fas fa-times"></i>
+    <% if request.referer&.include?("/post_images/#{params[:id]}") %>
+      <%= link_to post_images_path do %>
+        <i class="fas fa-times"></i>
+      <% end %>
+    <% else %>
+      <%= link_to request.referrer do %>
+        <i class="fas fa-times"></i>
+      <% end %>
     <% end %>
   </div>
   <%= render "shares/error_messages", resource: @new_post_comment %>
@@ -33,7 +39,6 @@
           </tr>
           <% end %>
         </table>
-        
       </div>
     </div>
     <!-- ↑コメント一覧のモーダルウィンドウ↑ -->
