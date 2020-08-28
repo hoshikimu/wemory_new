@@ -28,12 +28,12 @@ class PostImagesController < ApplicationController
 
   def index
     @categories = Category.where(user_id: current_user.id)
-    @post_images = PostImage.where(user_id: current_user.id).page(params[:page]).per(50)
+    @post_images = PostImage.where(user_id: current_user.id).page(params[:page]).per(30)
   end
 
   def index_by_category
     @categories = Category.where(user_id: current_user.id)
-    @post_images = PostImage.where(user_id: current_user.id, category_id: params[:category_id]).page(params[:page]).per(50)
+    @post_images = PostImage.where(user_id: current_user.id, category_id: params[:category_id]).page(params[:page]).per(30)
   end
 
   def show
@@ -41,7 +41,8 @@ class PostImagesController < ApplicationController
     @introduction = @post_image.introduction
     @permission_status = Approval.find_by(approver_id: @post_image.user_id, approvered_id: current_user.id, permission_status: "閲覧者(アルバム注文可)")
     @new_post_comment = PostComment.new
-    @post_comments = PostComment.where(post_image_id: params[:id])
+    @selected_post_comments = PostComment.where(post_image_id: params[:id]).order(created_at: "DESC").limit(5)
+    @post_comments = PostComment.where(post_image_id: params[:id]).order(created_at: "DESC")
   end
 
   def edit

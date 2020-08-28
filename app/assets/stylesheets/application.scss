@@ -256,8 +256,8 @@ header {
 // トップに戻るボタン
 #back {
   position: fixed;
-  right: 30px;
-  bottom: 30px;
+  right: 50px;
+  bottom: 50px;
   font-size: 30px;
 }
 
@@ -285,7 +285,6 @@ footer {
 .footer-contact {
   font-size: 16px;
 }
-
 
 //共通フォーム
 .form-container {
@@ -319,10 +318,9 @@ footer {
   margin: 0 auto;
 }
 
-
 // ページネーション
 .pager {
-  margin: 40px auto 70px;
+  margin: 0 auto 70px;
 }
 
 /*ページネーション自体のデザイン*/
