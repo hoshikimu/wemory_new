@@ -68,6 +68,7 @@ class PostImagesController < ApplicationController
       redirect_to post_images_path
     else
       @post_image = PostImage.find(params[:id])
+      @categories = Category.where(user_id: current_user.id)
       render :edit
     end
   end
