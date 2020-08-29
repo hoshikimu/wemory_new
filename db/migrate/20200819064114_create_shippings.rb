@@ -6,7 +6,7 @@ class CreateShippings < ActiveRecord::Migration[5.2]
       t.string :prefecture_code, null: false
       t.string :address_city, null: false
       t.string :address_street, null: false
-      t.string :address_building
+      t.string :address_building, default: ""
       t.string :receiver, null: false
       t.string :phone_number, null: false
 

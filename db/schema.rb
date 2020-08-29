@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
 
   create_table "post_images", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "category_id"
+    t.integer "category_id", default: 0
     t.string "image_id", null: false
     t.text "introduction"
     t.datetime "created_at", null: false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
     t.string "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_street", null: false
-    t.string "address_building"
+    t.string "address_building", default: ""
     t.string "receiver", null: false
     t.string "phone_number", null: false
     t.datetime "created_at", null: false
