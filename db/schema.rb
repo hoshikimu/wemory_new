@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_173549) do
+ActiveRecord::Schema.define(version: 2020_08_29_053311) do
 
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id", null: false
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
 
   create_table "post_images", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "category_id", default: 0
+    t.integer "category_id"
     t.string "image_id", null: false
     t.text "introduction"
     t.datetime "created_at", null: false
