@@ -32,7 +32,7 @@
             <td><i class="fas fa-user"></i><span> </span><%= post_comment.user.name %></td>
             <td><i class="far fa-comment"></i><span> </span><%= post_comment.comment %></td>
             <% if post_comment.user_id == current_user.id %>
-              <td><button><%= link_to "削除", post_image_post_comment_path(@post_image, post_comment), method: :delete, class:"btn btn-default" %></button></td>
+              <td><button><%= link_to "削除", post_image_post_comment_path(@post_image, post_comment), method: :delete, class:"btn btn-xs" %></button></td>
             <% else %>
               <td></td>
             <% end %>
