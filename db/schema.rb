@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
   create_table "approvals", force: :cascade do |t|
     t.integer "approver_id", null: false
     t.integer "approvered_id", null: false
-    t.integer "permission_status", null: false
+    t.integer "permission_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,15 +28,15 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", default: ""
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.text "message", default: "", null: false
+    t.string "email", null: false
+    t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,20 +51,20 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
   create_table "order_images", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "post_image_id", null: false
-    t.string "image_id", default: "", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "postal_code", default: "", null: false
-    t.string "prefecture_code", default: "", null: false
-    t.string "address_city", default: "", null: false
-    t.string "address_street", default: "", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
     t.string "address_building", default: ""
-    t.string "receiver", default: "", null: false
-    t.string "phone_number", default: "", null: false
+    t.string "receiver", null: false
+    t.string "phone_number", null: false
     t.integer "quantity", null: false
     t.integer "postage", null: false
     t.integer "payment_method", default: 0, null: false
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
   create_table "post_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_image_id", null: false
-    t.text "comment", default: "", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,13 +93,13 @@ ActiveRecord::Schema.define(version: 2020_08_26_173549) do
 
   create_table "shippings", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "postal_code", default: "", null: false
-    t.string "prefecture_code", default: "", null: false
-    t.string "address_city", default: "", null: false
-    t.string "address_street", default: "", null: false
-    t.string "address_building", default: ""
-    t.string "receiver", default: "", null: false
-    t.string "phone_number", default: "", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "address_building"
+    t.string "receiver", null: false
+    t.string "phone_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
