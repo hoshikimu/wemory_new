@@ -227,7 +227,7 @@ header {
 .white-display-close-btn {
   float: right;
   font-size: 36px;
-  margin-right: 20px;
+  margin-right: 50px;
   margin-top: 12px;
 }
 
@@ -359,6 +359,93 @@ footer {
   }
 }
 
+@media (max-width:768px) {
+  // 共通
+  .form-box {
+  width: 70%;
+  padding: 30px 30px;
+  }
+
+  .form-box-s {
+  width: 60%;
+  padding: 30px 30px;
+  }
+
+  // アバウトページ
+  .skp-container3 {
+  width: 499px;
+  height: 312px;
+  }
+
+  // トップページ
+  .skp-container {
+    height: 400px;
+  }
+
+  .image-boxes-container {
+  width: 84%;
+  margin: 0 auto 60px;
+  }
+
+  .image-box img {
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  }
+
+  .categories-container {
+  margin: 60px auto 20px;
+  }
+
+  // 投稿一覧
+  .index-image-boxes-container {
+  width: 86%;
+  }
+
+  .index-image-box img {
+    width: 150px;
+    height: 150px;
+  }
+
+  // 投稿詳細ページ
+  .close-btn {
+  margin-right: 40px;
+  }
+
+  .image-detail {
+  width: 70%;
+  margin: 15px auto 0;
+  font-size: 18px;
+  }
+
+  .post-comments-whitedisplay {
+  width: 80%;
+  left: 10%;
+  }
+
+  .post-comment-whitedisplay {
+  width: 80%;
+  left: 10%;
+  height: 25vh;
+  }
+
+  .post-comment-form {
+  width: 80%;
+  }
+
+  // カート
+  .cart-images-container img {
+  width: 80px;
+  height: 80px;
+  }
+
+  // 注文情報確認画面
+  .order-images-container img {
+  width: 80px;
+  height: 80px;
+  }
+}
+
 @media (max-width:425px) {
   // 共通
   .footer-nav-logo {
@@ -372,6 +459,10 @@ footer {
   .rsp-menu {
     margin-right: 20px;
   }
+
+  .white-display-close-btn {
+  margin-right: 20px;
+}
 
   #back {
   bottom: 80px;
