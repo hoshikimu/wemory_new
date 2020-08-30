@@ -1,6 +1,10 @@
 <div class="whitedisplay">
   <div class="close-btn">
-    <% if request.referer&.include?("/post_images/#{params[:id]}") %>
+    <% if request.referer&.include?("/post_images/#{params[:id]}") && @post_image.user_id != current_user.id %>
+      <%= link_to approver_post_images_path(@post_image.user_id) do %>
+        <i class="fas fa-times"></i>
+      <% end %>
+    <% elsif request.referer&.include?("/post_images/#{params[:id]}")%>
       <%= link_to post_images_path do %>
         <i class="fas fa-times"></i>
       <% end %>
