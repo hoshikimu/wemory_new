@@ -21,6 +21,10 @@
       <div>
         <%= @quantity %><span>部</span>
       </div>
+    <h4 class="form-title">アルバム料金</h4>
+      <div>
+        <%= @album_price.to_s(:delimited) %><span>円</span>
+      </div>
     <h4 class="form-title">送料</h4>
       <div>
         <%= @postage.to_s(:delimited) %><span>円</span>

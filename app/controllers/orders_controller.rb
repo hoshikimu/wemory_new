@@ -56,8 +56,12 @@ class OrdersController < ApplicationController
     @cart_images = CartImage.where(user_id: user.id)
     @quantity = params[:quantity]
     @postage = 500
-    album_price = 2000
-    @total = (album_price * @quantity.to_i) + @postage
+    if @cart_images.count <= 30
+      @album_price = 2000
+    else
+      @album_price = 2500
+    end
+    @total = (@album_price * @quantity.to_i) + @postage
     @order_new = Order.new
   end
 
