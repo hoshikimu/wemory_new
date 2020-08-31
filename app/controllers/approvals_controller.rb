@@ -27,7 +27,7 @@ class ApprovalsController < ApplicationController
     elsif Approval.find_by(approver_id: current_user.id, approvered_id: @user.id)
       flash[:danger] = "#{@user.name}さんは、承認済みです。"
       render :search
-    elsif @user.id = current_user.id
+    elsif @user.id == current_user.id
       flash[:danger] = "自身は承認できません。"
       render :search
     end
