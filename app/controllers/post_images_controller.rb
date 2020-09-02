@@ -1,6 +1,6 @@
 class PostImagesController < ApplicationController
-  before_action :ensure_correct_user?, only: :show
   before_action :ensure_correct_url?, only: :show
+  before_action :ensure_correct_user?, only: :show
 
   def ensure_correct_user?
     post_image_user_id = PostImage.find(params[:id]).user_id
