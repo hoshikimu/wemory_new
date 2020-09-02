@@ -2,22 +2,19 @@ class PostImagesController < ApplicationController
   before_action :ensure_correct_url?, only: :show
   before_action :ensure_correct_user?, only: :show
 
+  def ensure_correct_url?
+    if !PostImage.exists?(params[:id])
+      flash[:alert] = "エラー"
+      redirect_to top_path
+    end
+  end
+  
   def ensure_correct_user?
     post_image_user_id = PostImage.find(params[:id]).user_id
     if post_image_user_id != current_user.id && !Approval.exists?(approver_id: post_image_user_id, approvered_id: current_user.id)
       redirect_to top_path
       flash[:alert] = "閲覧権限がありません。"
     end
-  end
-
-  def ensure_correct_url?
-    PostImage.all.each do |post_image|
-      if post_image.id == params[:id].to_i
-        return
-      end
-    end
-    flash[:alert] = "エラー"
-    redirect_to top_path
   end
 
   def new
